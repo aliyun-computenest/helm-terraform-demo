@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="计算巢是阿里云开放给企业应用服务商的服务管理平台。服务商能够在计算巢上发布私有化部署服务，为其客户提供云上软件一键部署的能力；同时也支持全托管模式的服务，赋能服务商托管其客户资源。">
+  <title>服务模板说明文档 - Aliyun 计算巢 x Demo</title>
+
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  
+
+  
+
+  
+  
+
+  
+    <script src="search/main.js"></script>
+  
+
+  
+
+  <script src="js/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="./img/logo-2x.png">
+        </div>
+        <div class="nav-list">
+          <ul>
+          
+              <li><a href="#_1">服务模板说明文档</a></li>
+              
+                  <li><a href="#_2">说明</a></li>
+                  
+              
+                  <li><a href="#_3">部署架构</a></li>
+                  
+              
+                  <li><a href="#_4">目录说明</a></li>
+                  
+              
+                  <li><a href="#_5">详细说明</a></li>
+                  
+              
+          
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content theme-github">
+      
+      <div class="content-inner">        
+        
+        <h1 id="_1">服务模板说明文档</h1>
+<h2 id="_2">说明</h2>
+<p>本项目以使用Helm Chart部署SpringBoot为例，介绍快速构建计算巢服务的流程。</p>
+<h2 id="_3">部署架构</h2>
+<p><img src="architecture.png" width="1500" height="700" align="bottom"/></p>
+<h2 id="_4">目录说明</h2>
+<p>.computenest: 计算巢根目录
+- docs：相关文档说明
+- templates: 模板相关配置
+  - infrastructure: 基础设施相关配置
+    - main.tf: 资源定义，即需要的云资源
+    - output.tf: 输出定义，即服务部署完成后的输出
+    - variables.tf: 参数定义，即需要用户填写的部署参数
+  - ros_schema.yaml: ROS相关配置，计算巢使用的阿里云ROS托管的Terraform，定义此文件是为了更好的页面渲染效果
+  - software：使用 Helm chart 编排容器应用包</p>
+<h2 id="_5">详细说明</h2>
+<p>本仓库是使用Helm Chart部署SpringBoot的示例，您可根据自身项目架构及资源需求修改以下内容：
+- 修改目录 .computenest/templates/infrastructure下的Terraform模板，其中main.tf 中定义要使用的云资源，您可以按需进行调整
+- 修改Helm Chart软件配置包，您可根据需要替换为您自己的容器应用。
+- 修改参数的页面渲染配置 .computenest/templates/ros_schema.yaml 的文件 ros_schema.yaml中分为三大部分：
+  - Parameters： 与ROS类型模板参数（Parameters）语法相同, 其中参数的命名需要与variables.tf中参数命名保持一致，在渲染时则会按照Parameters中的配置进行展示
+  - Metadata：与ROS类型模板参数（Metadata）语法相同，支持对Parameters中定义的参数进行分组，以及对自定义参数进行隐藏。
+  - Outputs：与ROS类型模板输出（Outputs）语法相同，其中Outputs的value命名需要和output.tf中命令保持一致，需要最终在计算巢概览页中对用户展示的输出</p>
+        
+      </div>
+
+      <div class="copyrights">© 2009-2022 Aliyun.com 版权所有</div>
+    </div>
+  </div>
+  
+  <!--
+  MkDocs version      : 1.6.1
+  Docs Build Date UTC : 2025-03-14 07:15:39.268934+00:00
+  -->
+</body>
+</html>
