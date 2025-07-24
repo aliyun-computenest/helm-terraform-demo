@@ -80,6 +80,7 @@ data "alicloud_cs_cluster_credential" "auth" {
 }
 
 provider "helm" {
+  version = "2.17.0"
   kubernetes {
     config_context = ""
     config_path = "${path.module}/kubeconfig.yaml"
